@@ -14,14 +14,14 @@ public class CarrosDAO {
 		
 		Connection con = c.conectar();
 		
-		String query = "INSERT INTO Carros (idCarro, Modelo) VALUES (7, 7)";
+		String query = "INSERT INTO Carros (idCarro, Modelo) VALUES (?, ?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
 			
 			// seta os parametros
 			ps.setInt(1, ca.getIdCarro());
-			ps.setString(1, ca.getModelo());
+			ps.setString(2, ca.getModelo());
 			
 			// consolidar a execução do comando no banco
 			ps.executeUpdate();
